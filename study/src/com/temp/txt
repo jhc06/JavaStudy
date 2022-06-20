@@ -1,0 +1,50 @@
+/*
+메소드 참조 method reference
+메소드 참조(method reference)는 람다 표현식이 단 하나의 메소드만을 호출하는 경우에 해당 람다 표현식에서 불필요한 매개변수를 제거하고 사용할 수 있도록 해줍니다.
+메소드 참조를 사용하면 불필요한 매개변수를 제거하고 다음과 같이 '::' 기호를 사용하여 표현할 수 있습니다.
+*/
+
+/* Comparable, Comparator 공통점: 인터페이스,  객체를 비교할 수 있다.
+ * Comparable: parameter가 한개, 자지자신과 parameter 객체를 비교, lang 패키지에 속함 = import 불필요.
+ * -> compareTo(T o) 메소드 재정의 필요
+ * Comparator: parameter가 두개, 두 parameter 객체를 비교, util 패키지에 속함 = import 필요.
+ * -> compare(T o1, T o2) 메소드 재정의 필요
+ */
+
+ /*
+  ---필터링
+ 	 distinct()	중복 제거하기
+ 	 filter()	조건에 맞는값 찾기
+  ---매핑 다른 값으로 변경하기
+ 	flatMapXXX()	특정요소가 여러개의 요소로 대체되는 스트림 리턴
+ 	mapXXX()	요소를 대체하는 새로운 스트림 리턴
+ 	asXXXStream()	타입변환된 스트림 리턴
+ 	boxed()	박싱(boxing)된 값을 요소로 하는 스트림 리턴
+ 	(즉 기본형 객체를 Wrapper 로 바꿔주는 것을 박싱이라고 하고 반대로 Wrapper 클래스 타입의 값을 Primitive로 바꾸는 것을 언박싱)
+
+  ---정렬
+ 	sorted()	오름차순 정렬
+ 	sorted()	Comparable 구현기준에 따라 정렬
+ 	sorted(Comparator<T>)	Comparator 구현기준에 따라 정렬
+  --- 루핑 요소 반복하기
+ 	 peek()	-중간처리 메서드
+ 	-중간에 호출해야 스트림이 동작한다
+ 	-마지막에 호출하면 스트림이 동작하지 않는다
+ 	forEach()	-최종처리 메서드
+ 	-마지막에 호출해야 스트림이 동작한다.
+ 	-이후에 다른 메서드를 호출시 컴파일 에러 발생
+  --- 기본집계
+  	count()	개수
+ 	findFirst()	첫번째 요소
+ 	max()	최댓값
+ 	min()	최솟값
+ 	sum()	합계
+ 	average()	평균
+ --- Optional 클래스 사용하기
+ 	isPresent()	값이 저장되었는지 여부
+ 	orElse()	값이 저장되지 않았다면 대체값 설정
+ 	ifPresent()	값이 저장된 경우 Consumer 에서 처리하기
+  */
+
+  psvm + Tab = 메인 매소드;
+  sout + Tab = 프린트인 메소드;
