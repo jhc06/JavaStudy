@@ -12,7 +12,7 @@ public class View {
     String having;
     String orderBy;
 
-    public void dbInfoInput(String url,String id, String pw){
+    public void setDBInfo(String url,String id, String pw){
         this.url = url;
         this.id = id;
         this.pw = pw;

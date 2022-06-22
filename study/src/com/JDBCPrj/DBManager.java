@@ -48,9 +48,9 @@ public class DBManager {
 
     public void close() {
         try {
-            rs.close();
-            pstat.close();
             con.close();
+            pstat.close();
+            rs.close();
             System.out.println("정상적으로 종료되었습니다.");
         } catch (Exception e) {
             System.out.print("Error : " + e.getMessage());

@@ -5,7 +5,7 @@ public class Example {
         DBManager dbm = new DBManager();
         View view = new View();
 
-        view.dbInfoInput("jdbc:oracle:thin:@localhost:1521:XE", "C##TEST","oracle");
+        view.setDBInfo("jdbc:oracle:thin:@localhost:1521:XE", "C##TEST","oracle");
 //        view.selectSqlInput();
         view.tempSql();
 
