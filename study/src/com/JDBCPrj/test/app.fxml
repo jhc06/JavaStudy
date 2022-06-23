@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="com.JDBCPrj.test.AppController" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<!--    <children>-->
+<!--        <AnchorPane layoutX="-12.0" prefHeight="200.0" prefWidth="300.0">-->
+<!--            <children>-->
+<!--                <Label layoutX="64.0" layoutY="59.0" text="아이디">-->
+
+<!--                </Label>-->
+<!--                <Label layoutX="64.0" layoutY="100.0" text="이름">-->
+
+<!--                </Label>-->
+<!--                <TextField fx:id="tf1" layoutX="133.0" layoutY="57.0" />-->
+<!--                <TextField fx:id="tf2" layoutX="133.0" layoutY="98.0" />-->
+<!--                <Button fx:id="btn1" layoutX="82.0" layoutY="146.0" mnemonicParsing="false" text="검색" />-->
+<!--                <Button fx:id="btn2" layoutX="150.0" layoutY="146.0" mnemonicParsing="false" text="수정" />-->
+<!--            </children>-->
+<!--        </AnchorPane>-->
+<!--    </children>-->
+</AnchorPane>
