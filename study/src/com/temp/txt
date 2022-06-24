@@ -45,6 +45,3 @@
  	orElse()	값이 저장되지 않았다면 대체값 설정
  	ifPresent()	값이 저장된 경우 Consumer 에서 처리하기
   */
-
-  psvm + Tab = 메인 매소드;
-  sout + Tab = 프린트인 메소드;

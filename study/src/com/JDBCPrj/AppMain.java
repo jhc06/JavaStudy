@@ -19,5 +19,5 @@ public class AppMain extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
 }
+// 실행에 실패함!!!! 완성품 prj220624로 이동

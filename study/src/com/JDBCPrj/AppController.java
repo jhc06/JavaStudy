@@ -26,14 +26,14 @@ public class AppController implements Initializable {
         this.userPW = userPW;
     }
 
-//    public void loginAction(ActionEvent e) {
-//        dbm.getConnection();
-//        dbm.login(IDField.getText(), PWField.getText());
-//        dbm.close();
-//    }
-//    public void abcAction(ActionEvent e){
-//
-//    }
+    public void loginAction(ActionEvent e) {
+        dbm.getConnection();
+        dbm.login(IDField.getText(), PWField.getText());
+        dbm.close();
+    }
+    public void abcAction(ActionEvent e){
+
+    }
     public String getUserName(){return userName;}
     public String getUserID(){return userID;}
     public String getUserPW(){return userPW;}

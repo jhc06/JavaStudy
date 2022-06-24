@@ -56,7 +56,6 @@ public class DBManager {
             System.out.println("Error : " + e.getMessage());
         }
     }
-
 }
 
 //    public void updateQuery(View view){
