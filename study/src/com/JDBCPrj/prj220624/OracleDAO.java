@@ -6,8 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class OracleDAO {
-    PreparedStatement ps;
-    ResultSet rs;
+
     private Connection con;
 
 
@@ -22,8 +21,10 @@ public class OracleDAO {
        return con;
    }
 
-    // Logininfo DB 데이터를 받아와서 객체에 저장 후 객체를 리턴한다.
+    // Logininfo DB 데이터 전체를 받아와서 객체에 저장 후 객체를 리턴한다.
     public ArrayList<LoginInfo> select() {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         ArrayList<LoginInfo> list = null;
         try {
             ps = con.prepareStatement("SELECT * FROM LOGININFO");
@@ -40,14 +41,16 @@ public class OracleDAO {
         }
         return list;
     }
-    public int login(String id, String pw){
+    public int login(LoginInfo info){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try{
             ps = con.prepareStatement("SELECT userpw FROM logininfo WHERE USERID = ?");
-            ps.setString(1, id);
+            ps.setString(1, info.getUserID());
             rs = ps.executeQuery();
 
             while(rs.next()){
-                if(pw.equals(rs.getString("USERPW"))){
+                if(info.getUserPW().equals(rs.getString("USERPW"))){
                     return 1; // id와 일치하는 pw 발견. 로그인 성공 // 로그인된 main 화면으로 이동한다.
                 }
             }
@@ -57,14 +60,15 @@ public class OracleDAO {
             return -1; //아이디가 없거나 db 에러 // 로그파일로 데이터 전송
         }
     }
-    public int loginChangeAccount(String id, String name, String pw, String newPw){ // ID,PW,Name 비교 후 NewPWe로 비밀번호 변경
+    public int loginChangeAccount(LoginInfo info){ // ID,PW,Name 비교 후 NewPWe로 비밀번호 변경
+        PreparedStatement ps = null;
         ArrayList<LoginInfo> dbData = select();
         try{
-            for(LoginInfo info : dbData){
-                if((id.equals(info.getUserID()))&&(name.equals(info.getUserName()))&&(pw.equals(info.getUserPW()))){
+            for(LoginInfo DBinfo : dbData){
+                if((info.getUserID().equals(DBinfo.getUserID()))&&(info.getUserName().equals(DBinfo.getUserName()))&&(info.getUserPW().equals(DBinfo.getUserPW()))){
                     ps = con.prepareStatement("UPDATE LOGININFO SET USERPW = ? WHERE USERID = ?");
-                    ps.setString(1, newPw);
-                    ps.setString(2, id);
+                    ps.setString(1, info.getUserNewPW());
+                    ps.setString(2, info.getUserID());
                     ps.executeUpdate();
                     ps = con.prepareStatement("COMMIT");
                     ps.executeUpdate();
@@ -77,18 +81,19 @@ public class OracleDAO {
             return -1; // db 에러 // 로그파일로 데이터 전송
         }
     }
-    public int loginCreateAccount(String id, String name, String pw){
+    public int loginCreateAccount(LoginInfo info){
+        PreparedStatement ps = null;
         ArrayList<LoginInfo> dbData = select();
         try{
-            for(LoginInfo info : dbData){
-                if(id.equals(info.getUserID())){
+            for(LoginInfo DBinfo : dbData){
+                if(info.getUserID().equals(DBinfo.getUserID())){
                     return 0; // 아이디 중복, 가입 실패. // 경고창+재입력
                 }
             }
             ps = con.prepareStatement("INSERT INTO LOGININFO (USERID, USERNAME, USERPW) VALUES(?, ?, ?)");
-            ps.setString(1,id);
-            ps.setString(2,name);
-            ps.setString(3,pw);
+            ps.setString(1, info.getUserID());
+            ps.setString(2, info.getUserName());
+            ps.setString(3, info.getUserPW());
             ps.executeUpdate();
             ps = con.prepareStatement("COMMIT");
             ps.executeUpdate();
@@ -99,14 +104,15 @@ public class OracleDAO {
         }
     }
     // id,name,pw를 입력받아 db 대조 후 일치 시 DB에서 삭제한다.
-    public int loginCloseAccount(String id, String name, String pw){
+    public int loginCloseAccount(LoginInfo info){
+        PreparedStatement ps = null;
         ArrayList<LoginInfo> dbData = select();
 
         try{
-            for(LoginInfo info : dbData){
-                if((id.equals(info.getUserID()))&&(name.equals(info.getUserName()))&&(pw.equals(info.getUserPW()))){
+            for(LoginInfo DBinfo : dbData){
+                if((info.getUserID().equals(DBinfo.getUserID()))&&(info.getUserName().equals(DBinfo.getUserName()))&&(info.getUserPW().equals(DBinfo.getUserPW()))){
                     ps = con.prepareStatement("DELETE FROM LOGININFO  WHERE userID=?");
-                    ps.setString(1,id);
+                    ps.setString(1,info.getUserID());
                     ps.executeUpdate();
                     ps = con.prepareStatement("COMMIT");
                     ps.executeUpdate();
