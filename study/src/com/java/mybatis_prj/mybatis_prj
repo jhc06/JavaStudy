@@ -1,0 +1,24 @@
+DB:
+    purchase: purchaseUid(PK), seatNum(FK), paymentMethod, price, userUid(FK), purchaseDate. // 결제내역
+    userInfo: userUid(PK), userid, userpw, userSex, userAge, userEmail // 유저정보
+    movie: movieUid(PK), movieName, movieTime, placeUid(FK) // 영화 종류
+    seat: SeatUid(PK), seatNum, movieUid(FK)
+DO:
+    Purchase: purchaseUid(PK), seatNum(FK), userUid(FK) // 예매번호, 좌석번호,( +영화이름, 영화시간)
+    UserInfo : 유저정보
+    Seat 좌석정보
+구매정보 클래스 ==! db 구매정보 테이블
+DAO(=repository):
+    예매저장, 수정, 삭제(Purchase purchase), 조회(Seat seat), 로그인, 계정수정, 삭제(Userinfo userinfo),
+
+
+
+Servlet:
+
+
+Controller:
+    totalController: servlet.
+        login:
+        reservation:
+        seat:
+        signUp:
