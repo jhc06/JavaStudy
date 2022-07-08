@@ -2,6 +2,12 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AroundHub_SpringBoot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/demo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/jsoup" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/jsp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mybatis" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/spring" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web" vcs="Git" />
   </component>
 </project>

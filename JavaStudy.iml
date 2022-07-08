@@ -9,6 +9,7 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
+        <sourceRoots />
       </configuration>
     </facet>
   </component>
@@ -19,8 +20,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="ojdbc8" level="project" />
     <orderEntry type="library" name="mybatis-3.5.10" level="project" />
+    <orderEntry type="library" name="ojdbc8" level="project" />
     <orderEntry type="library" name="hynnet.javax.servlet.api" level="project" />
   </component>
 </module>
